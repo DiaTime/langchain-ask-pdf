@@ -13,7 +13,8 @@ def create_and_activate_venv():
     os.system(activate_script)
 
 def install_requirements():
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+    requirements_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'requirements.txt')
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", requirements_file])
 
 def run_app():
     os.system("streamlit run app.py")
